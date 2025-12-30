@@ -5,61 +5,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Nuestro Nuevo Año 2026</title>
-    <link rel="stylesheet" href="./style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@300;500&display=swap');
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000000;
+            font-family: 'Quicksand', sans-serif;
+            position: fixed;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #1a1500 0%, #000000 100%);
+        }
+
+        .font-romance { font-family: 'Great Vibes', cursive; }
+
+        /* VELAS CORREGIDAS: Posicionamiento absoluto respecto a la ventana */
+        .candle-container {
+            position: fixed;
+            bottom: 30px; /* Siempre abajo */
+            z-index: 40;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .candle {
+            width: 25px;
+            height: 75px;
+            background: linear-gradient(to bottom, #f3e5ab, #d4af37);
+            border-radius: 4px;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .flame {
+            width: 15px;
+            height: 25px;
+            background: #ffd700;
+            border-radius: 50% 50% 20% 20%;
+            margin-bottom: 4px;
+            box-shadow: 0 0 20px #ffcc00;
+            animation: flicker 0.1s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.15); opacity: 1; }
+        }
+
+        .light {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: blink 1.5s infinite alternate;
+        }
+        @keyframes blink {
+            from { opacity: 0.2; filter: blur(1px); }
+            to { opacity: 1; filter: blur(3px); box-shadow: 0 0 10px currentColor; }
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        /* TARJETA: Evita que se alargue demasiado en web */
+        .main-card {
+            position: relative;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            width: 90%;
+            max-width: 500px; /* Límite de ancho para web */
+            margin: auto;
+        }
+
+        .particle {
+            position: absolute;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
 </head>
 <body>
 
     <canvas id="fireworksCanvas"></canvas>
 
-    <div class="fixed top-0 w-full flex justify-around p-2 z-[110]">
+    <div class="fixed top-0 w-full flex justify-around p-4 z-[110]">
         <div class="light" style="background: #ffffff; color: #ffffff;"></div>
         <div class="light" style="background: #ffd700; color: #ffd700; animation-delay: 0.2s"></div>
         <div class="light" style="background: #ffffff; color: #ffffff; animation-delay: 0.4s"></div>
         <div class="light" style="background: #ffd700; color: #ffd700; animation-delay: 0.6s"></div>
     </div>
 
-    <div class="candle-container left-4 md:left-20">
+    <div class="candle-container left-6 md:left-20">
         <div class="flame"></div>
         <div class="candle"></div>
     </div>
-    <div class="candle-container right-4 md:right-20">
+    <div class="candle-container right-6 md:right-20">
         <div class="flame"></div>
         <div class="candle"></div>
     </div>
 
-    <div class="main-card p-6 md:p-10 rounded-[2.5rem] shadow-[0_0_60px_rgba(0,0,0,1)] text-center">
+    <div class="main-card p-8 md:p-10 rounded-[2.5rem] shadow-[0_0_50px_rgba(0,0,0,0.8)] text-center">
         
-        <h1 class="text-5xl md:text-6xl font-romance text-yellow-500 mb-4 drop-shadow-lg">
+        <h1 class="text-5xl md:text-6xl font-romance text-yellow-500 mb-4">
             ¡Feliz Año Nuevo!
         </h1>
         
         <p class="text-yellow-100/80 italic mb-6 text-sm md:text-base leading-relaxed">
             ¿Me acompañas este 2026? <br>
             Si tú me das una sola oportunidad de que lo nuestro funcione... <br>
-            <span class="text-yellow-500 font-medium text-xs tracking-widest uppercase">Te prometo hacerte la mujer más feliz.</span>
+            <span class="text-yellow-500 font-medium text-[10px] md:text-xs tracking-widest uppercase mt-2 block">Te prometo hacerte la mujer más feliz.</span>
         </p>
 
-        <div class="overflow-hidden rounded-2xl border border-yellow-500/20 mb-8 bg-black/40">
+        <div class="overflow-hidden rounded-2xl border border-yellow-500/30 mb-8 bg-black/40 px-2">
             <table class="w-full">
                 <thead>
-                    <tr class="text-yellow-500 font-romance text-3xl">
-                        <th class="p-3">2</th>
-                        <th class="p-3">0</th>
-                        <th class="p-3 text-white text-xl">❤️</th>
-                        <th class="p-3">2</th>
-                        <th class="p-3">6</th>
+                    <tr class="text-yellow-500 font-romance text-3xl md:text-4xl">
+                        <th class="py-4">2</th>
+                        <th class="py-4">0</th>
+                        <th class="py-4 text-xl">❤️</th>
+                        <th class="py-4">2</th>
+                        <th class="py-4">6</th>
                     </tr>
                 </thead>
                 <tbody class="text-white/80 border-t border-yellow-500/10">
-                    <tr class="text-xl">
-                        <td class="p-2">🥂</td>
-                        <td class="p-2">✨</td>
-                        <td class="p-2">💍</td>
-                        <td class="p-2">🕰️</td>
-                        <td class="p-2">🎆</td>
+                    <tr class="text-xl md:text-2xl">
+                        <td class="py-3">🥂</td>
+                        <td class="py-3">✨</td>
+                        <td class="py-3">💍</td>
+                        <td class="py-3">🕰️</td>
+                        <td class="py-3">🎆</td>
                     </tr>
                     <tr>
-                        <td colspan="5" class="p-4 text-xs italic text-yellow-100/50">
+                        <td colspan="5" class="pb-4 pt-2 text-[10px] md:text-xs italic text-yellow-100/50">
                             Usted sigue siendo la mujer que voy a querer siempre.
                         </td>
                     </tr>
@@ -72,13 +167,91 @@
             <div class="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:animate-ping"></div>
         </button>
 
-        <div id="hidden-msg" class="mt-6 opacity-0 transition-opacity duration-1000 text-yellow-200 font-romance text-4xl">
-                Te... amo ♥
-                <br>
+        <div id="hidden-msg" class="mt-8 opacity-0 transition-opacity duration-1000 text-yellow-200 font-romance text-3xl md:text-5xl">
+            Te... amo ❤️<br>
             ¡Mi reina, mi amor!
         </div>
     </div>
 
-    <script src="./scripts.js"></script>
+    <script>
+        const canvas = document.getElementById('fireworksCanvas');
+        const ctx = canvas.getContext('2d');
+        let fireworks = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        function createFirework(x, y) {
+            const colors = ['#ffd700', '#ffffff', '#ff69b4', '#f0e68c', '#00e5ff'];
+            const count = 40;
+            for(let i = 0; i < count; i++) {
+                fireworks.push({
+                    x, y,
+                    dx: (Math.random() - 0.5) * 10,
+                    dy: (Math.random() - 0.5) * 10,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    life: 1.0,
+                    size: Math.random() * 2 + 1
+                });
+            }
+        }
+
+        function explotarAmor() {
+            document.getElementById('hidden-msg').classList.add('opacity-100');
+            for(let i = 0; i < 6; i++) {
+                setTimeout(() => {
+                    createFirework(Math.random() * canvas.width, Math.random() * canvas.height * 0.4);
+                }, i * 200);
+            }
+        }
+
+        setInterval(() => {
+            createFirework(Math.random() * canvas.width, Math.random() * canvas.height * 0.5);
+        }, 1000);
+
+        function createParticle() {
+            const p = document.createElement('div');
+            const icons = ['❤️', '✨', '⭐'];
+            p.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+            p.classList.add('particle');
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.top = '-20px';
+            p.style.fontSize = (Math.random() * 10 + 12) + 'px';
+            p.style.opacity = Math.random();
+            document.body.appendChild(p);
+
+            const duration = Math.random() * 3000 + 4000;
+            p.animate([
+                { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                { transform: `translateY(110vh) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+            ], { duration: duration, easing: 'linear' });
+
+            setTimeout(() => p.remove(), duration);
+        }
+        setInterval(createParticle, 600);
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = fireworks.length - 1; i >= 0; i--) {
+                const p = fireworks[i];
+                p.x += p.dx;
+                p.y += p.dy;
+                p.dy += 0.15;
+                p.life -= 0.015;
+                ctx.globalAlpha = p.life;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.fill();
+                if(p.life <= 0) fireworks.splice(i, 1);
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
 </body>
 </html>
