@@ -2,83 +2,79 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Nuestro Nuevo Año Juntos</title>
+    <title>Nuestro Nuevo Año 2026</title>
     <link rel="stylesheet" href="./style.css">
 </head>
-<body class="flex items-center justify-center">
+<body>
 
     <canvas id="fireworksCanvas"></canvas>
 
-    <div class="fixed top-0 w-full flex justify-around p-2 z-[60]">
+    <div class="fixed top-0 w-full flex justify-around p-2 z-[110]">
         <div class="light" style="background: #ffffff; color: #ffffff;"></div>
         <div class="light" style="background: #ffd700; color: #ffd700; animation-delay: 0.2s"></div>
         <div class="light" style="background: #ffffff; color: #ffffff; animation-delay: 0.4s"></div>
         <div class="light" style="background: #ffd700; color: #ffd700; animation-delay: 0.6s"></div>
-        <div class="light" style="background: #ffffff; color: #ffffff; animation-delay: 0.8s"></div>
     </div>
 
-    <div class="fixed bottom-10 left-10 md:left-20 flex flex-col items-center z-50">
+    <div class="candle-container left-4 md:left-20">
         <div class="flame"></div>
-        <div class="candle shadow-lg"></div>
+        <div class="candle"></div>
     </div>
-    <div class="fixed bottom-10 right-10 md:right-20 flex flex-col items-center z-50">
+    <div class="candle-container right-4 md:right-20">
         <div class="flame"></div>
-        <div class="candle shadow-lg"></div>
+        <div class="candle"></div>
     </div>
 
-    <div class="main-card w-full max-w-lg mx-4 bg-black/40 backdrop-blur-xl p-8 rounded-[2rem] border-2 border-yellow-600/30 shadow-[0_0_50px_rgba(212,175,55,0.2)] text-center">
+    <div class="main-card p-6 md:p-10 rounded-[2.5rem] shadow-[0_0_60px_rgba(0,0,0,1)] text-center">
         
-        <h1 class="text-6xl font-romance text-yellow-500 mb-4 drop-shadow-[0_2px_10px_rgba(255,255,255,0.2)]">
+        <h1 class="text-5xl md:text-6xl font-romance text-yellow-500 mb-4 drop-shadow-lg">
             ¡Feliz Año Nuevo!
         </h1>
         
-        <p class="text-yellow-100/70 italic mb-6 tracking-[0.2em] uppercase text-xs">
-               ¿Me acompañas este 2026? 
-               <br>
-               Si tú me das una sola oportunidad de que lo nuestro funcione...
-               <br> 
-               
-               Quiero y te prometo hacerte la mujer más feliz.
+        <p class="text-yellow-100/80 italic mb-6 text-sm md:text-base leading-relaxed">
+            ¿Me acompañas este 2026? <br>
+            Si tú me das una sola oportunidad de que lo nuestro funcione... <br>
+            <span class="text-yellow-500 font-medium text-xs tracking-widest uppercase">Te prometo hacerte la mujer más feliz.</span>
         </p>
 
-        <div class="overflow-hidden rounded-2xl border border-yellow-500/30 mb-8 bg-black/40">
+        <div class="overflow-hidden rounded-2xl border border-yellow-500/20 mb-8 bg-black/40">
             <table class="w-full">
                 <thead>
                     <tr class="text-yellow-500 font-romance text-3xl">
-                        <th class="p-4">2</th>
-                        <th class="p-4">0</th>
-                        <th class="p-4 italic text-white text-xl">❤️</th>
-                        <th class="p-4">2</th>
-                        <th class="p-4">6</th>
+                        <th class="p-3">2</th>
+                        <th class="p-3">0</th>
+                        <th class="p-3 text-white text-xl">❤️</th>
+                        <th class="p-3">2</th>
+                        <th class="p-3">6</th>
                     </tr>
                 </thead>
-                <tbody class="text-white/80">
-                    <tr class="border-t border-yellow-500/20">
-                        <td class="p-3">🥂</td>
-                        <td class="p-3">✨</td>
-                        <td class="p-3">💍</td>
-                        <td class="p-3">🕰️</td>
-                        <td class="p-3">🎆</td>
+                <tbody class="text-white/80 border-t border-yellow-500/10">
+                    <tr class="text-xl">
+                        <td class="p-2">🥂</td>
+                        <td class="p-2">✨</td>
+                        <td class="p-2">💍</td>
+                        <td class="p-2">🕰️</td>
+                        <td class="p-2">🎆</td>
                     </tr>
                     <tr>
-                        <td colspan="5" class="p-4 text-sm font-light italic text-yellow-100/60">
-                            Inicia otro año ¿y qué crees? Usted sigue siendo la mujer que voy a querer siempre.
+                        <td colspan="5" class="p-4 text-xs italic text-yellow-100/50">
+                            Usted sigue siendo la mujer que voy a querer siempre.
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <button onclick="explotarAmor()" class="group relative px-10 py-4 bg-gradient-to-r from-yellow-700 to-yellow-500 hover:from-yellow-600 hover:to-yellow-400 text-black font-bold rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.4)] active:scale-95">
+        <button onclick="explotarAmor()" class="group relative w-full px-8 py-4 bg-gradient-to-r from-yellow-700 to-yellow-500 text-black font-bold rounded-full transition-all duration-300 shadow-xl active:scale-95">
             <span class="relative z-10 tracking-widest uppercase text-xs">Brindar por nosotros</span>
-            <div class="absolute inset-0 rounded-full bg-white opacity-0 group-hover:animate-ping"></div>
+            <div class="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:animate-ping"></div>
         </button>
 
         <div id="hidden-msg" class="mt-6 opacity-0 transition-opacity duration-1000 text-yellow-200 font-romance text-4xl">
-            ¡Feliz Año Nuevo! 
-            <br>
+                Te... amo ♥
+                <br>
             ¡Mi reina, mi amor!
         </div>
     </div>
