@@ -1,0 +1,71 @@
+ @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@300;500&display=swap');
+        
+        body {
+            /* Fondo elegante de noche de gala */
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+            font-family: 'Quicksand', sans-serif;
+            overflow: hidden;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .font-romance { font-family: 'Great Vibes', cursive; }
+
+        /* Estilo de las Velas - Ahora más doradas */
+        .candle {
+            width: 30px;
+            height: 80px;
+            background: linear-gradient(to bottom, #f3e5ab, #d4af37);
+            border-radius: 5px;
+            position: relative;
+        }
+        .flame {
+            width: 15px;
+            height: 25px;
+            background: #ffd700;
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 25px #ffcc00;
+            animation: flicker 0.1s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1); opacity: 0.9; }
+            100% { transform: translateX(-50%) scale(1.1); opacity: 1; }
+        }
+
+        .particle {
+            position: absolute;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .main-card {
+            position: relative;
+            z-index: 50;
+        }
+
+        /* Luces de gala (Blanco y Oro) */
+        .light {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: blink 1.5s infinite alternate;
+        }
+        @keyframes blink {
+            from { opacity: 0.3; filter: blur(1px); }
+            to { opacity: 1; filter: blur(2px); box-shadow: 0 0 15px currentColor; }
+        }
